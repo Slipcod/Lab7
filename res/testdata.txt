@@ -1,0 +1,7 @@
+Mon Mar 04 01:04:56 MSK 2019 - test - Ты не дома ещё?
+Mon Mar 04 01:04:57 MSK 2019 - Shi - Что делаешь?
+Mon Mar 04 01:04:58 MSK 2019 - Shi - Я думаю буду вечером после 7.
+Mon Mar 04 01:04:59 MSK 2019 - Shi - Скоро буду.
+Mon Mar 04 01:05:00 MSK 2019 - HUU - Пошли играть!
+Mon Mar 04 01:05:01 MSK 2019 - TTest - No
+Mon Mar 04 01:05:02 MSK 2019 - test - Ужос.
