@@ -3,30 +3,39 @@ package GUI.AWT8;
 import java.awt.*;
 
 public class SecondWindow extends Frame  {
-    Label lblComment=new Label ( "Comments :" );
-    TextArea txtComment=new TextArea("ТестТест");
-    Button btnBread=new Button( "Войти в систему" );
-    Button btnButter=new Button( "Зарегистрироваться в системе" );
-    Button btnJam=new Button( "Выйти из системы" );
+    Label lblComment=new Label ( "Текстовое поле:" );
+    TextArea txtComment=new TextArea();
+    Button btnMesShow=new Button( "Посмотреть сообщения" );
+    Button btnMesRand=new Button( "Новое сообщение(рандом" );
+    Button btnWrite=new Button( "Написать сообщение" );
+    Button btnSave=new Button( "Сохранить сообщения в файл" );
+    Button btnExit=new Button( "Закрыть программу" );
 
-    public SecondWindow(String title) {
-        super(title);
-        setLayout(new FlowLayout() ) ;
-        lblComment.setBounds(60,30,120,30);
-        txtComment.setBounds(80,60,130,30);
-        btnBread.setBounds(100,90,120,30);
-        btnButter.setBounds(120,120,120,30);
-        btnJam.setBounds(130,150,120,30);
-        add(lblComment);
-        add(txtComment);
-        add(btnBread);
-        add(btnButter);
-        add(btnJam);
+    public SecondWindow() {
+
+        BorderLayout borderLayout= new BorderLayout();
+
+        setLayout(new GridLayout(6,1));
+
+
+
+        add(txtComment,borderLayout.CENTER);
+
+
+
+       add(btnMesShow);
+       add(btnMesRand);
+       add(btnWrite);
+       add(btnSave);
+       add(btnExit);
+
+
+
     }
 
     public static void main(String args []) {
-        SecondWindow secondWindow=new SecondWindow( "Главная страница" );
-        secondWindow.setSize(300,300) ;
+        SecondWindow secondWindow=new SecondWindow();
+        secondWindow.setSize(500,400) ;
         secondWindow.show();
     }
 

@@ -7,16 +7,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 class MainWindow extends Frame implements ActionListener {
-
-
-
         Button btnIn ;
         Button btnReg ;
         Button btnOut ;
 
         public MainWindow(String title) {
             super(title);
-            setLayout(new FlowLayout() );
+            setLayout(new GridLayout(3,1));
 
             btnIn =new Button( "Войти в систему" );
              btnReg =new Button( "Зарегистрироваться в системе" );
@@ -32,7 +29,7 @@ class MainWindow extends Frame implements ActionListener {
         }
 
         public static void main(String args []) {
-            MainWindow mWindow=new MainWindow( "The three little buttons!" );
+            MainWindow mWindow=new MainWindow( "Main Window" );
             mWindow.setSize(300,300) ;
             mWindow.show();
         }
@@ -43,15 +40,18 @@ class MainWindow extends Frame implements ActionListener {
         if(e.getSource()==btnIn){
             InOrRegWindow inOrReg= new InOrRegWindow();
 
-            inOrReg.setSize(300,300) ;
+
             inOrReg.setVisible(true);   //видимость
             this.hide();
 
         }else if(e.getSource()==btnReg){
-
+            InOrRegWindow inOrReg= new InOrRegWindow();
+            inOrReg.setSize(300,300) ;
+            inOrReg.setVisible(true);   //видимость
+            this.hide();
         }
         else if(e.getSource()==btnOut){
-
+            System.exit(0);
         }
 
 
