@@ -120,7 +120,7 @@ public class InOrRegWindow extends Frame implements ActionListener {
                 info.setText("\nВведите имя пользователя.\nВведите пароль. ");
 
 
-            }else if(registration.inputUsername(username,info)){
+            }else if(registration.inputUsername(username)){
                 info.setText("\nТакой пользователь существует.");
             } else {
                 registration.reg(textLog,textPass,info);

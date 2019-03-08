@@ -22,10 +22,11 @@ public class Registration {
         username = textLog.getText();
 
         password = textPass.getText();
+        info.setText("\nРегистрация прошла успешно. Подождите.\n\n");
         writeDataProperties();
         createUserFile();
 
-        info.setText("\nРегистрация прошла успешно. Подождите.\n\n");
+
 
     }
 
@@ -47,7 +48,7 @@ public class Registration {
 
 
     //Логин
-    public boolean inputUsername(String user, Label info){
+    public boolean inputUsername(String user){
         String result;
 
         boolean flag = true;
@@ -62,13 +63,14 @@ public class Registration {
                 string += "\n" + this.username;
                 Files.write(path,string.getBytes(StandardCharsets.UTF_8));
                 System.out.println("\nOK");
-                return true;
+                return false;
             }
-            info.setText("\n Такой пользователь уже существует. ");
+            return true;
+
         }while(flag);
         }catch (IOException e) {
             System.exit(112);
         }
-        return false;
+        return true;
     }
 }
