@@ -1,5 +1,6 @@
 package prog;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -12,21 +13,19 @@ import java.util.Scanner;
 public class Registration {
 
     private String username, password;
-    public Registration(){
-      reg();
-    }
 
 
-    private void reg(){
+
+    public void reg(TextField textLog, TextField textPass, Label info){
         Scanner  scanner = new Scanner(System.in);
-        System.out.print("\nВведите логин: ");
-        username = inputUsername();
-        System.out.print("\nВведите пароль: ");
-        password = scanner.next();
+
+        username = textLog.getText();
+
+        password = textPass.getText();
         writeDataProperties();
         createUserFile();
 
-        System.out.print("\nРегистрация прошла успешно.\n\n");
+        info.setText("\nРегистрация прошла успешно. Подождите.\n\n");
 
     }
 
@@ -48,27 +47,28 @@ public class Registration {
 
 
     //Логин
-    private String inputUsername(){
-        String result = "11";
-        Scanner scanner = new Scanner(System.in);
+    public boolean inputUsername(String user, Label info){
+        String result;
+
         boolean flag = true;
         try{
         do{
-            result = scanner.next();
-            username = result;
+            result = user;
+            this.username = result;
             Path path = Paths.get("res/users.txt");
             String string = new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
 
-            if(!(new String (Files.readAllBytes(path)).contains(username))){
-                string += "\n" + username;
+            if(!(new String (Files.readAllBytes(path)).contains(this.username))){
+                string += "\n" + this.username;
                 Files.write(path,string.getBytes(StandardCharsets.UTF_8));
-                return result;
+                System.out.println("\nOK");
+                return true;
             }
-            System.out.print("\n Такой пользователь уже существует. Введите другой логин: ");
+            info.setText("\n Такой пользователь уже существует. ");
         }while(flag);
         }catch (IOException e) {
             System.exit(112);
         }
-        return result;
+        return false;
     }
 }

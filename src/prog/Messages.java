@@ -2,6 +2,7 @@ package prog;
 
 import utils.Rand;
 
+import java.awt.*;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -73,14 +74,13 @@ public class Messages {
     public void newMessage() {
         String add = getDate() + " - " + rand.getRandUser() + " - " + rand.getRandText();
         stack.add(add);
-
-
     }
 
     //вывод того что есть в стеке
-    public void readStack(){
+    public void readStack(TextArea textArea){
+        textArea.setText(null);
         while(!stack.empty()){
-            System.out.print("\n" + stack.pop());
+            textArea.append("\n" + stack.pop());
         }
     }
 

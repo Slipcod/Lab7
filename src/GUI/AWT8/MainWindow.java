@@ -38,15 +38,15 @@ class MainWindow extends Frame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if(e.getSource()==btnIn){
-            InOrRegWindow inOrReg= new InOrRegWindow();
+            InOrRegWindow inOrReg= new InOrRegWindow(1);
 
 
             inOrReg.setVisible(true);   //видимость
             this.hide();
 
         }else if(e.getSource()==btnReg){
-            InOrRegWindow inOrReg= new InOrRegWindow();
-            inOrReg.setSize(300,300) ;
+            InOrRegWindow inOrReg= new InOrRegWindow(2);
+
             inOrReg.setVisible(true);   //видимость
             this.hide();
         }

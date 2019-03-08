@@ -1,42 +1,58 @@
 package GUI.AWT8;
 
-import java.awt.*;
+import prog.Messages;
 
-public class SecondWindow extends Frame  {
-    Label lblComment=new Label ( "Текстовое поле:" );
-    TextArea txtComment=new TextArea();
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class SecondWindow extends Frame implements ActionListener {
+    Messages messages;
+
+    TextArea txtOut =new TextArea();
     Button btnMesShow=new Button( "Посмотреть сообщения" );
-    Button btnMesRand=new Button( "Новое сообщение(рандом" );
-    Button btnWrite=new Button( "Написать сообщение" );
+    Button btnMesRand=new Button( "Новое сообщение(рандом)" );
+
     Button btnSave=new Button( "Сохранить сообщения в файл" );
     Button btnExit=new Button( "Закрыть программу" );
 
-    public SecondWindow() {
+    public SecondWindow(String username, String pass) {
 
         BorderLayout borderLayout= new BorderLayout();
 
-        setLayout(new GridLayout(6,1));
+        setLayout(new GridLayout(5,1));
 
 
 
-        add(txtComment,borderLayout.CENTER);
+        add(txtOut,borderLayout.CENTER);
 
 
 
        add(btnMesShow);
        add(btnMesRand);
-       add(btnWrite);
+
        add(btnSave);
        add(btnExit);
+       messages = new Messages(username, pass, true);
 
-
-
+       btnMesShow.addActionListener(this);
+       btnMesRand.addActionListener(this);
+       btnSave.addActionListener(this);
+       btnExit.addActionListener(this);
     }
 
-    public static void main(String args []) {
-        SecondWindow secondWindow=new SecondWindow();
-        secondWindow.setSize(500,400) ;
-        secondWindow.show();
-    }
 
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==btnMesShow){
+            messages.readStack(txtOut);
+        }else if(e.getSource()==btnMesRand){
+            messages.newMessage();
+        }else if(e.getSource()==btnSave){
+            messages.saveToFile();
+        }else if(e.getSource()==btnExit){
+            System.exit(0);
+        }
+    }
 }

@@ -87,7 +87,7 @@ public class Main {
 
             switch (action) {
                 case 1:
-                    messages.readStack();
+                    //messages.readStack();
                     break;
                 case 2:
                     messages.newMessage();
