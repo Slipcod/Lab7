@@ -42,7 +42,7 @@ public class Registration {
             content += "\n" + username + "=" + password;
             Files.write(Paths.get("res/users.properties"), content.getBytes(StandardCharsets.UTF_8));
         }catch(IOException e){
-            System.exit(1488);
+            System.exit(1111);
         }
     }
 
